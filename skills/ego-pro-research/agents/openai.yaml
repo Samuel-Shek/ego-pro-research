@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ego Lite · Pro 研究协作"
+  short_description: "先用本地优化器整理任务、宿主审稿，再经 Ego Lite 调用最高可用 Pro 研究并核验"
+  default_prompt: "使用 $ego-pro-research，先用本地提示词优化器整理这项任务，审稿后在 Ego Lite 新聊天交给最高可用 Pro 研究，再核验并交付。"
+policy:
+  allow_implicit_invocation: true
