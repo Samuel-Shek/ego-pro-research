@@ -7,13 +7,12 @@
 ## 流程与分工
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[任务和必要资料] --> B[当前 AI 准备脱敏任务书]
     B --> C[本地优化 Skill 整理提示词]
     C --> D[当前 AI 审稿并补齐约束]
     D --> E[Ego Lite 新普通聊天中的最高 Pro 研究]
-    E --> F[当前 AI 核验来源与结果]
-    F --> G[交付原任务结果]
+    E --> F[当前 AI 核验来源并交付原任务结果]
 ```
 
 | 角色 | 做什么 |
