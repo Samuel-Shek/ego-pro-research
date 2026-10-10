@@ -3,7 +3,7 @@ name: ego-pro-research
 description: Use Ego Lite to collaborate with the highest available ChatGPT Pro on research, complex technical questions, or independent review. First use the local prompt-optimizer skill, have the host review the prompt, then start a fresh ordinary ChatGPT chat. Use when explicitly requested or when Pro review materially helps a complex task; skip simple edits and status questions. Optional user-supplied GPTs optimization is supported.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Ego Lite · 先优化，再交给 Pro 研究

@@ -2,7 +2,7 @@
 
 一套可安装的 AI 协作流程：**当前 AI 使用提示词优化 Skill 整理要求，审稿后通过 Ego Lite 新聊天交给最高可用 ChatGPT Pro，再核验并交付。**
 
-默认不依赖作者的 GPTs 链接。提供两个 Skill：`ego-pro-research` v1.0.0 和 `prompt-optimizer` v3.3.0。
+默认不依赖作者的 GPTs 链接。提供两个 Skill：`ego-pro-research` v1.0.1 和 `prompt-optimizer` v3.3.0。
 
 ## 流程与分工
 
@@ -94,6 +94,6 @@ GPTs 是否可用要分别看共享权限、访客页面和非创建者实际对
 
 ## 验证与许可
 
-具体版本、样本及运行限制见 [VALIDATION.md](VALIDATION.md)。不承诺自动发现后就一定可运行，也不宣称提示词优化必然提高所有任务的效果。
+具体版本、样本及运行限制见 [VALIDATION.md](VALIDATION.md)；真实新会话、三组盲评对照和附件/恢复结果见 [TESTING.md](TESTING.md)。不承诺自动发现后就一定可运行，也不宣称提示词优化必然提高所有任务的效果。
 
 本仓库原创指令与说明采用 [MIT](LICENSE)。官方 Ego Lite 是独立依赖，其仓库许可不等于本仓库分发浏览器程序；第三方外链仍归原权利人。见 [NOTICE.md](NOTICE.md)。
