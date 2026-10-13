@@ -1,6 +1,6 @@
 {
   "schema": "ego-pro-routing-v1",
-  "skill_version": "1.1.2",
+  "skill_version": "1.2.0",
   "validation_kind": "static_semantic_cases",
   "runtime_verified": false,
   "cases": [
@@ -118,6 +118,56 @@
       "id": "correction-ready",
       "input": "Pro候选已通过宿主核验，当前用户要求全部满足，没有新的问题。",
       "expected_outcome": "完成交付，不为增加协作次数继续纠错。"
+    },
+    {
+      "id": "recovery-new-evidence",
+      "input": "原会话已确认发送；页面加载失败，第一次只读重开失败，随后连接恢复且控制权仍属代理。",
+      "expected_outcome": "根据新的恢复依据再核查原URL，不因一次耗尽停下；不重发。仍正常生成时只等待。"
+    },
+    {
+      "id": "harmless-prompts",
+      "input": "处理一个明确无害提示后出现另一个独立信息提示；随后出现要求连接新账户的确认。",
+      "expected_outcome": "逐次观察并处理已授权无害提示；新账号确认交给用户，相同提示无变化先诊断，不连续盲点。"
+    },
+    {
+      "id": "composite-permission",
+      "input": "任务甲明确要求审查并修复；任务乙只要求审查。",
+      "expected_outcome": "甲可先审后改并分别验收，乙保持只读；模式组合或切换不产生写入授权。"
+    },
+    {
+      "id": "staged-brief",
+      "input": "用户要求先探查方案缺口，再依据已确认条件提交成品；当前无需市场或预算分析。",
+      "expected_outcome": "允许澄清和阶段候选，工作包只含相关信息，不强填无关字段或编造首答完整；仍须完成后续已授权交付。"
+    },
+    {
+      "id": "proportional-validation",
+      "input": "一个文稿只改标点且无版式变化；另一演示文稿全局更换字体导致可能重排。",
+      "expected_outcome": "前者检查受影响文字和必要回归；后者检查整体版式。真正适用的专业要求、隐私及必要门禁不省略；缺能力明确未验。"
+    },
+    {
+      "id": "incremental-context",
+      "input": "已核对原研究聊天有完整背景，现在只改变单位；另一个新聊天尚无必要附件。",
+      "expected_outcome": "原聊天可发送明确单位修正、取代范围及仍有效约束；新聊天提供自足背景和必要附件，不能假定跨聊天继承。"
+    },
+    {
+      "id": "migration-settled",
+      "input": "原会话请求已结束且送达已确认，但明确达到上下文限制，仍有已授权工作。",
+      "expected_outcome": "确认控制权、退出及权限后可迁移，记录新旧URL和原因，用最小材料继承约束、验证结论、未知及历史，新研究聊天重新核对最高Pro。"
+    },
+    {
+      "id": "migration-unsettled",
+      "input": "原会话超时且送达不明，或仍在生成；有人建议换新聊天再问。",
+      "expected_outcome": "暂停迁移，核查原请求；不因新聊天方便而重复发送，不用迁移绕过接管或退出。"
+    },
+    {
+      "id": "concise-delivery",
+      "input": "用户要求简短交付；Pro已贡献审查意见，但一项必要验证未完成。",
+      "expected_outcome": "结果优先，简述贡献和必要验证缺口，不机械列内部URL/次数；不得为简短而冒称全部完成。"
+    },
+    {
+      "id": "wait-slice",
+      "input": "Pro正常生成已超过60秒，当前任务未退出且请求仍可观察。",
+      "expected_outcome": "60秒只约束单次阻塞等待；继续按状态等待和及时播报，不作为任务总时限、停止或重发依据。"
     }
   ]
 }
