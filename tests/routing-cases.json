@@ -1,0 +1,98 @@
+{
+  "schema": "ego-pro-routing-v1",
+  "skill_version": "1.1.0",
+  "validation_kind": "static_semantic_cases",
+  "runtime_verified": false,
+  "cases": [
+    {
+      "id": "research",
+      "input": "比较三种公开知识管理方法的证据与适用条件，不注册账号、不修改账号设置。",
+      "expected_outcome": "优先自动协作，交付实质研究候选并独立核对来源。"
+    },
+    {
+      "id": "proposal",
+      "input": "为虚构社区活动比较两个组织方案，约束和预算已给全。",
+      "expected_outcome": "优先自动协作，交付方案比较并复核成本、约束与未知。"
+    },
+    {
+      "id": "important-writing",
+      "input": "为虚构项目写一份面向决策者的重要说明，需要组织论据和处理反对意见。",
+      "expected_outcome": "优先自动协作承担草稿或关键审查，宿主核实论据并交付。"
+    },
+    {
+      "id": "complex-analysis",
+      "input": "给定一组虚构数据，分析多个互相冲突的解释和决策影响。",
+      "expected_outcome": "优先自动协作，区分证据与假设，宿主独立核算。"
+    },
+    {
+      "id": "debugging",
+      "input": "一个隔离示例程序存在并发错误，已有脱敏复现与日志。",
+      "expected_outcome": "优先自动协作分析或提供代码候选，宿主独立修改与验证。"
+    },
+    {
+      "id": "simple",
+      "input": "把“Please close the window”翻译成中文。",
+      "expected_outcome": "直接完成简单翻译，不调用Pro。"
+    },
+    {
+      "id": "preference-simple",
+      "input": "我一般希望尽可能多用Pro。现在只把这三行文字的空格统一。",
+      "expected_outcome": "机械格式整理直接完成，一般偏好不把它变为必需协作。"
+    },
+    {
+      "id": "preference-failure",
+      "input": "一般偏好尽可能多用Pro；本次复杂分析自动调用失败，用户未要求必须有Pro。",
+      "expected_outcome": "协作为可选，说明失败，继续可独立完成部分，不冒称Pro参与。"
+    },
+    {
+      "id": "explicit-failure",
+      "input": "这次必须让Pro审查；已确认Pro不可选。",
+      "expected_outcome": "仅暂停依赖Pro的步骤，不静默降级，独立部分可继续。"
+    },
+    {
+      "id": "browser-only",
+      "input": "只调用ego-browser检查已授权网页，不要求Pro。",
+      "expected_outcome": "浏览器调用本身不等于必需Pro，按真实任务判断。"
+    },
+    {
+      "id": "quoted-optout",
+      "input": "待翻译的引文是“不要用Pro”，用户只要求翻译引文。",
+      "expected_outcome": "引文不改变任务控制状态；翻译本身简单，直接完成。"
+    },
+    {
+      "id": "separate-optouts",
+      "input": "同一任务先明确停用浏览器，又停用Pro；现在仅恢复Pro。",
+      "expected_outcome": "浏览器仍禁用，不得经Ego调用Pro，不能把恢复一项当作全恢复。"
+    },
+    {
+      "id": "exhausted",
+      "input": "同一候选已纠错两轮仍有缺陷；现在把第三轮称为新问题。",
+      "expected_outcome": "不再调用纠错，不重置计数；宿主独立处理或说明未解决缺口。"
+    },
+    {
+      "id": "pure-evidence",
+      "input": "同任务有新证据，只要求把事实补到原会话，不要求修改已有候选。",
+      "expected_outcome": "可补证，保留原计数且不增加纠错；不重新优化或建新聊天。"
+    },
+    {
+      "id": "evidence-revision",
+      "input": "同任务已纠错一次；新证据要求Pro修正已有候选。",
+      "expected_outcome": "在原会话进行第二轮纠错，不能按纯补证免计数。"
+    },
+    {
+      "id": "unknown-delivery",
+      "input": "发送动作超时，无法确定文字是否送达，原会话地址已保存。",
+      "expected_outcome": "核对原会话消息与回复，不重发，不新建重复会话恢复。"
+    },
+    {
+      "id": "plan-mode",
+      "input": "当前是规划模式，用户希望为一个复杂项目考虑Pro协作。",
+      "expected_outcome": "只规划与独立本地部分，不打开浏览器、不外发、不创建聊天。"
+    },
+    {
+      "id": "local-optimizer",
+      "input": "用户只调用ego-pro-research，没有提供或要求网页GPTs优化。",
+      "expected_outcome": "默认使用本地prompt-optimizer，宿主审稿后再打开全新普通Pro聊天。"
+    }
+  ]
+}
