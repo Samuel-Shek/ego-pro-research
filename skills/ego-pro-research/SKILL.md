@@ -3,7 +3,7 @@ name: ego-pro-research
 description: Collaborate through Ego Lite with the highest available ChatGPT Pro. Prioritize substantive research, proposals, important writing, complex analysis, coding, and debugging; skip simple translation, formatting, status questions, and mechanical edits. First optimize locally, have the host review the prompt, then use a fresh ordinary Pro chat and independently verify the result. Supports explicit requests and task-scoped opt-outs.
 license: MIT
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
 ---
 
 # Ego Lite · 先优化，再交给 Pro 研究
