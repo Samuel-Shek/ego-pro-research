@@ -1,6 +1,6 @@
 {
   "schema": "ego-pro-routing-v1",
-  "skill_version": "1.1.0",
+  "skill_version": "1.1.1",
   "validation_kind": "static_semantic_cases",
   "runtime_verified": false,
   "cases": [
@@ -72,7 +72,7 @@
     {
       "id": "pure-evidence",
       "input": "同任务有新证据，只要求把事实补到原会话，不要求修改已有候选。",
-      "expected_outcome": "可补证，保留原计数且不增加纠错；不重新优化或建新聊天。"
+      "expected_outcome": "可补证，保留原计数且不增加纠错；无新的优化需求时复用已审稿，不机械重做或建新聊天。"
     },
     {
       "id": "evidence-revision",
@@ -93,6 +93,21 @@
       "id": "local-optimizer",
       "input": "用户只调用ego-pro-research，没有提供或要求网页GPTs优化。",
       "expected_outcome": "默认使用本地prompt-optimizer，宿主审稿后再打开全新普通Pro聊天。"
+    },
+    {
+      "id": "optimizer-repeat-demand",
+      "input": "同一任务已经优化过三次，现在用户修改了受众和验收标准，需要再次优化。",
+      "expected_outcome": "可再次优化，不因次数拒绝；审查新约束，保留任务与原会话状态，不重置Pro纠错计数。"
+    },
+    {
+      "id": "optimizer-reuse-ready",
+      "input": "已有合格提示词，目标、输入和约束均未变化，现在只是恢复同一任务。",
+      "expected_outcome": "复用已审稿，不因恢复机械重做优化；先核对既有送达状态。"
+    },
+    {
+      "id": "optimizer-review-defect",
+      "input": "同任务已优化一次，宿主发现提示词漏掉一项明确约束，需要优化器重新整理。",
+      "expected_outcome": "按具体缺陷继续优化并重新审查，无固定次数上限；本地可直接继续整理，若使用网页优化器则续接原优化会话；Pro后续使用原研究聊天。"
     }
   ]
 }

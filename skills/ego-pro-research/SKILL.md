@@ -3,7 +3,7 @@ name: ego-pro-research
 description: Collaborate through Ego Lite with the highest available ChatGPT Pro. Prioritize substantive research, proposals, important writing, complex analysis, coding, and debugging; skip simple translation, formatting, status questions, and mechanical edits. First optimize locally, have the host review the prompt, then use a fresh ordinary Pro chat and independently verify the result. Supports explicit requests and task-scoped opt-outs.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Ego Lite · 先优化，再交给 Pro 研究
@@ -30,10 +30,10 @@ metadata:
 1. 查明本地事实，准备最小、脱敏的任务书：目标、输入、约束、未知、交付物和验收条件。外发前读取 [安全边界](references/sharing-safety.md)。
 2. 默认把整理子任务交给本地 `prompt-optimizer`，明确目标为网页端最高可用 Pro，并要求只优化、不执行研究。不会因此先打开 GPTs。只有用户明确要求并提供 GPTs URL 时，才使用 [可选网页优化](references/prompt-handoff.md)。
 3. 宿主对照原任务审查优化稿，修正漏项、无依据新增事实、工具能力或权限，补齐附件及指代。关键缺口不能猜填；“只优化”只约束优化器，不误带成 Pro 不研究。
-4. 读取 [Ego 与 Pro 操作](references/ego-pro.md)，使用同任务已有、可控的隔离空间；无可用空间时按当前上游及宿主授权创建。记录空间号，观察登录状态；新研究使用没有旧消息和 GPT/插件绑定的普通 ChatGPT 聊天。
+4. 读取 [Ego 与 Pro 操作](references/ego-pro.md)，使用同任务已有、可控的隔离空间；无可用空间时按当前上游及宿主授权创建。记录空间号，观察登录状态；首次研究使用没有旧消息和 GPT/插件绑定的普通 ChatGPT 聊天；同任务再优化后沿已绑定研究聊天交接必要更新。
 5. 观察当前模型菜单，确认并选择最高可用 Pro；不硬编码模型版本，不把套餐升级入口或 Thinking/High 当成 Pro。无法确认时不发送。
 6. 把审查后的完整提示词及必要附件重新提供给研究聊天，读回核对，发送一次，确认真实用户消息。优化器会话中的上下文和附件不会自动传过去。记录该阶段真实会话 URL。
-7. 等待完整回复，送达不明时只查原会话，不重发。每份新的完整任务书优化一次；同任务补充、纠错和恢复沿用原研究聊天，不因重入重新优化或另建聊天。新证据与关键问题可以补充，首次实质协作和纯补证不计纠错；以修正既有候选为目的的每次往返计一轮，包括新证据触发的修正。同任务最多两轮且须有实质进展，不因改称补充、改名、重入或换聊天重置。新的独立任务才另备完整任务书。
+7. 等待完整回复，送达不明时只查原会话，不重发。提示词优化按实际需求迭代，不设固定次数；目标、约束或输入变化，或发现提示词缺陷时，可再次优化。已有合格提示词且无新需求时直接复用，不因重入机械重做。本地优化可继续整理；使用网页优化器时优先续接原优化会话。审稿后在原研究聊天交接必要更新，不新建重复研究聊天。优化器往返不套用 Pro 候选纠错的两轮上限，也不重置该计数。新证据与关键问题可以补充，首次实质协作和纯补证不计纠错；以修正既有候选为目的的每次往返计一轮，包括新证据触发的修正。同任务最多两轮且须有实质进展，不因改称补充、改名、重入或换聊天重置。新的独立任务才另备完整任务书。
 8. 按 [宿主验收](references/acceptance.md)独立核验来源、建议及交付物，记录采纳、修正或拒绝的依据；完成原任务后用上游 `finish` 清理任务空间。失败、接管或缺有效结果不以清理冒充成功。
 
 ## 简短协作记录
