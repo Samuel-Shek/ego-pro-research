@@ -1,10 +1,10 @@
 {
   "repository": "https://github.com/Samuel-Shek/prompt-optimizer",
-  "version": "3.3.0",
-  "commit": "8be53c75621d68982585a2dd654a7b317feda71c",
+  "version": "3.4.0",
+  "commit": "21233624fbcddebe1f9d1fc2b323776ca4841f69",
   "files": {
-    "SKILL.md": "758393b3a2795a6d7db9e36b48185cebbaec1453f4ce620f0c19c9680a836692",
-    "agents/openai.yaml": "5737e07749170859ca3ac90b8b5cb29df8d15e25065f19150ec74f69b02dfa7a",
+    "SKILL.md": "b1b174190af73bb39a1b16aa29576b6c8ffdb96db0eab22f896420deaa5b652a",
+    "agents/openai.yaml": "2b082bb534f7bde631e10c2eb1e53114d95f88b92e040326cdc99e0dca5bad8f",
     "references/methods.md": "96f679b6ce3ebb0bef0ff6447115b85ff835ad9cabf11ed96e22bc94458af0c1",
     "LICENSE": "69ea366331ea8e3a9d5d27a7c17d5d6f352cc5eb419d208212bae211a5353b8d"
   }
